@@ -9,19 +9,54 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body class="bg-light">
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="text-center mb-5">
-                    <h1 class="display-4 fw-bold text-primary mb-3">Barriere Checker</h1>
-                    <p class="lead text-muted">
-                        Überprüfen Sie die Barrierefreiheit Ihrer Webseite mit unserem modernen Tool.
-                        Einfach URL eingeben und los geht's!
-                    </p>
-                </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-universal-access me-2"></i>
+                Barriere Checker
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#guidelines">Richtlinien</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Über</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
+    <div class="container py-5">
+        <!-- Hero Section -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-10 text-center">
+                <h1 class="display-4 fw-bold text-primary mb-3">Barriere Checker</h1>
+                <p class="lead text-muted mb-4">
+                    Überprüfen Sie die Barrierefreiheit Ihrer Webseite mit unserem modernen Tool.
+                    Gemäß den neuesten gesetzlichen Anforderungen und WCAG 2.1 Richtlinien.
+                </p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="#checker" class="btn btn-primary btn-lg">
+                        <i class="fas fa-check-circle me-2"></i>Jetzt prüfen
+                    </a>
+                    <a href="#guidelines" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-book me-2"></i>Richtlinien
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Checker Section -->
+        <div id="checker" class="row justify-content-center mb-5">
+            <div class="col-md-10">
                 <div class="card shadow-lg border-0 rounded-4">
                     <div class="card-body p-4">
+                        <h2 class="h4 mb-4 text-center">Website-Prüfung</h2>
                         <form id="checkForm" class="mb-4">
                             <div class="input-group input-group-lg">
                                 <input type="url" class="form-control" id="urlInput" 
@@ -30,6 +65,9 @@
                                 <button class="btn btn-primary px-4" type="submit">
                                     <i class="fas fa-search me-2"></i>Prüfen
                                 </button>
+                            </div>
+                            <div class="form-text text-muted mt-2">
+                                Geben Sie die vollständige URL Ihrer Webseite ein (z.B. https://www.example.com)
                             </div>
                         </form>
 
@@ -41,10 +79,111 @@
                         </div>
 
                         <div id="results" class="d-none">
-                            <h2 class="h4 mb-3">Prüfergebnisse</h2>
-                            <div id="issuesList" class="list-group"></div>
-                            <div id="summary" class="mt-4 text-center">
+                            <h3 class="h4 mb-3">Prüfergebnisse</h3>
+                            <div class="progress mb-4">
+                                <div id="accessibilityScore" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                            </div>
+                            <div id="summary" class="mb-4">
                                 <div class="alert" role="alert"></div>
+                            </div>
+                            <div class="accordion" id="issuesAccordion">
+                                <!-- Issues will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guidelines Section -->
+        <div id="guidelines" class="row justify-content-center mb-5">
+            <div class="col-md-10">
+                <div class="card shadow border-0 rounded-4">
+                    <div class="card-body p-4">
+                        <h2 class="h3 mb-4">Barrierefreiheit-Richtlinien</h2>
+                        
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="feature-card">
+                                    <i class="fas fa-image text-primary mb-3"></i>
+                                    <h3 class="h5">Bilder & Medien</h3>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-success me-2"></i>Alt-Text für alle Bilder</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Untertitel für Videos</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Transkriptionen für Audio</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-card">
+                                    <i class="fas fa-keyboard text-primary mb-3"></i>
+                                    <h3 class="h5">Navigation & Interaktion</h3>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-success me-2"></i>Tastaturzugänglichkeit</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Klare Fokus-Indikatoren</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Skip-Links</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-card">
+                                    <i class="fas fa-paint-brush text-primary mb-3"></i>
+                                    <h3 class="h5">Farben & Kontrast</h3>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-success me-2"></i>Ausreichender Farbkontrast</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Keine reinen Farbinformationen</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Lesbare Schriftgrößen</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-card">
+                                    <i class="fas fa-code text-primary mb-3"></i>
+                                    <h3 class="h5">Struktur & Semantik</h3>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-success me-2"></i>Korrekte Überschriftenhierarchie</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>ARIA-Labels</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Semantische HTML-Elemente</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div id="about" class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card shadow border-0 rounded-4">
+                    <div class="card-body p-4">
+                        <h2 class="h3 mb-4">Über Barriere Checker</h2>
+                        <p class="lead">
+                            Der Barriere Checker wurde entwickelt, um Webseitenbetreibern dabei zu helfen,
+                            ihre Webseiten gemäß den aktuellen Barrierefreiheitsanforderungen zu optimieren.
+                        </p>
+                        <div class="row g-4 mt-2">
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <i class="fas fa-balance-scale fa-2x text-primary mb-3"></i>
+                                    <h3 class="h5">Gesetzeskonform</h3>
+                                    <p>Basierend auf aktuellen rechtlichen Anforderungen</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <i class="fas fa-chart-line fa-2x text-primary mb-3"></i>
+                                    <h3 class="h5">Automatisiert</h3>
+                                    <p>Schnelle und gründliche Überprüfung</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <i class="fas fa-users fa-2x text-primary mb-3"></i>
+                                    <h3 class="h5">Inklusiv</h3>
+                                    <p>Für alle Nutzer zugänglich</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,6 +191,20 @@
             </div>
         </div>
     </div>
+
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0"> 2025 Barriere Checker. Alle Rechte vorbehalten.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-light me-3">Datenschutz</a>
+                    <a href="#" class="text-light">Impressum</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>

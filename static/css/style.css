@@ -3,28 +3,78 @@
     --success-color: #34c759;
     --warning-color: #ff9500;
     --error-color: #ff3b30;
+    --bg-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: var(--bg-gradient);
 }
 
+/* Navbar Styles */
+.navbar {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(0, 102, 204, 0.98) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 600;
+}
+
+/* Card Styles */
 .card {
     transition: all 0.3s ease;
+    border: none;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .card:hover {
     transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Button Styles */
+.btn {
+    border-radius: 10px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 102, 204, 0.2);
 }
 
 .btn-primary:hover {
     background-color: #0055aa;
     border-color: #0055aa;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 102, 204, 0.3);
+}
+
+.btn-outline-primary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Form Controls */
+.form-control {
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
 }
 
 .form-control:focus {
@@ -32,48 +82,116 @@ body {
     box-shadow: 0 0 0 0.25rem rgba(0, 102, 204, 0.25);
 }
 
-.spinner-border {
-    width: 3rem;
-    height: 3rem;
+/* Progress Bar */
+.progress {
+    height: 10px;
+    border-radius: 5px;
+    background-color: #e9ecef;
+    margin: 1rem 0;
 }
 
-.list-group-item {
-    border-left: 4px solid transparent;
+.progress-bar {
+    background-color: var(--primary-color);
+    transition: width 0.6s ease;
+}
+
+/* Feature Cards */
+.feature-card {
+    padding: 1.5rem;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Issues List */
+.accordion-button {
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    background-color: #f8f9fa;
+    border: none;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: rgba(0, 102, 204, 0.05);
+    color: var(--primary-color);
+}
+
+.accordion-item {
+    border: none;
     margin-bottom: 0.5rem;
-    border-radius: 8px !important;
+    border-radius: 10px !important;
+    overflow: hidden;
 }
 
-.list-group-item.error {
-    border-left-color: var(--error-color);
-    background-color: rgba(255, 59, 48, 0.1);
-}
-
-.list-group-item.warning {
-    border-left-color: var(--warning-color);
-    background-color: rgba(255, 149, 0, 0.1);
+/* Alert Styles */
+.alert {
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    border: none;
+    margin-bottom: 1rem;
 }
 
 .alert-success {
     background-color: rgba(52, 199, 89, 0.1);
-    border-color: var(--success-color);
     color: var(--success-color);
 }
 
 .alert-warning {
     background-color: rgba(255, 149, 0, 0.1);
-    border-color: var(--warning-color);
     color: var(--warning-color);
 }
 
 .alert-danger {
     background-color: rgba(255, 59, 48, 0.1);
-    border-color: var(--error-color);
     color: var(--error-color);
 }
 
+/* Loading Animation */
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+    background: #1a1a1a !important;
+    margin-top: 4rem;
+}
+
+footer a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--primary-color) !important;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .container {
         padding-top: 2rem !important;
         padding-bottom: 2rem !important;
+    }
+    
+    .feature-card {
+        padding: 1rem;
+    }
+    
+    .btn {
+        padding: 0.5rem 1rem;
     }
 }
