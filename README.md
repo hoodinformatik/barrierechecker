@@ -1,38 +1,38 @@
-# Barriere Checker
+# Barrier Checker
 
-Eine moderne Webanwendung zur Überprüfung der Barrierefreiheit von Webseiten.
+A modern web application for checking website accessibility.
 
-## Über das Projekt
+## About the Project
 
-Der Barriere Checker ist ein Tool, das Webseitenbetreibern hilft, ihre Webseiten auf Barrierefreiheit zu überprüfen. Mit dem nahenden Inkrafttreten neuer gesetzlicher Anforderungen zur digitalen Barrierefreiheit bietet diese Anwendung eine einfache Möglichkeit, Webseiten auf wichtige Zugänglichkeitskriterien zu testen.
+The Barrier Checker is a tool that helps website operators check their websites for accessibility compliance. With the upcoming legal requirements for digital accessibility, this application provides an easy way to test websites against important accessibility criteria.
 
-## Funktionen
+## Features
 
-- Moderne, benutzerfreundliche Oberfläche
-- Schnelle URL-Validierung
-- Umfassende Barrierefreiheits-Prüfung
-- Detaillierte Ergebnisdarstellung
-- Responsive Design für alle Geräte
+- Modern, user-friendly interface
+- Quick URL validation
+- Comprehensive accessibility checking
+- Detailed results display
+- Responsive design for all devices
 
 ## Installation
 
-1. Klonen Sie das Repository:
+1. Clone the repository:
 ```bash
 git clone https://github.com/hoodinformatik/barrierechecker.git
 cd barrierechecker
 ```
 
-2. Installieren Sie die Abhängigkeiten:
+2. Install the dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Starten Sie die Anwendung:
+3. Start the application:
 ```bash
 python app.py
 ```
 
-## Technologien
+## Technologies
 
 - Python/Flask
 - HTML5/CSS3
@@ -40,6 +40,6 @@ python app.py
 - Bootstrap 5
 - Font Awesome Icons
 
-## Lizenz
+## License
 
 MIT License
